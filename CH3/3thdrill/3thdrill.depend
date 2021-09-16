@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1631813888 source:d:\ifksp\bevprog\ch3\3thdrill\main.cpp
+	<iostream>
+	<list>
+	"std_lib_facilities.h"
+
+1631808623 d:\ifksp\bevprog\ch3\3thdrill\std_lib_facilities.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<forward_list>
+	<vector>
+	<unordered_map>
+	<algorithm>
+	<array>
+	<regex>
+	<random>
+	<stdexcept>
+
