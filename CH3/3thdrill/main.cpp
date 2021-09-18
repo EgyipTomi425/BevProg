@@ -79,7 +79,7 @@ class osztaly
         cin>>nem;
         if(nem=='f')
         {
-            lastsormod("Láttad mostanában a barátunkat?");
+            lastsormod("Lattad mostanában a baratunkat?");
         }else if(nem=='n'){
             lastsormod("Lattad mostanaban a baratnonket?");
         }else{
@@ -117,7 +117,6 @@ class osztaly
             ss<<age;
             ujsor("Hallottam nemreg volt a szulinapod, utolag is gratulalok, hogy mar "+ss.str()+" eves vagy!");
         }
-        qlevelnez();
 
         ujsor("Tisztelettel:");
         ujsor("");
