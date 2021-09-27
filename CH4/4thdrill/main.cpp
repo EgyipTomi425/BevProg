@@ -3,8 +3,24 @@
 class osztaly
 {
     string x;
+    string y;
     vector<string>mertek;
     vector<double>szam;
+
+    const string meter={"m"};
+    const string centimeter={"cm"};
+    const string inch={"in"};
+    const string feet={"ft"};
+
+    public: bool mertekegyseg()
+    {
+        if(y==meter || y==centimeter || y==inch || y==feet)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public: void kiirv()
     {
@@ -184,28 +200,42 @@ class osztaly
     {
         cout<<"Ez a verzio 3! Adjon meg hosszusagokat mertekegyseggel! (pl. 12m vgy 5 cm)"<<endl;
         cout<<"A program elfogadja szokozzel, illetve anelkul is a hosszusagokat. (Akar felvaltva is)"<<endl;
-        cout<<"Negativ szamokat pozitivra cserel."<<endl;
+        cout<<"Negativ szamokat pozitivra cserel. Ha eleget irt be, irjon be valami, ami nem mertekegyseg!"<<endl;
         cout<<"(| jel kilep a programbol.)"<<endl;
-        const string meter={"m"};
-        const string centimeter={"cm"};
-        const string inch={"in"};
-        const string feet={"ft"};
 
-        while(cin>>x)
+        int temp=0;
+
+        while(cin>>mertek[temp])
         {
             try
             {
-                szam.push_back(stod(x));
+                szam.push_back(stod(mertek[temp]));
             }catch(invalid_argument)
             {
-                if(x=="|")
+                if(mertek[temp]=="|")
                 {
                     simple_error("| parancs vegrehajtva. Program vege!");
-                }else{
-                    cout<<x<<" ervenytelen. Beolvasas vege."<<endl;
+                }else if(mertekegyseg() && szam.size()>0)
+                {
+                    try
+                    {
+                        szam.push_back(stod(mertek[temp]));
+                        //Igen, így ha pl. beírjuk, hogy 12m cm, akkor a másodiket úgy fogja
+                        //venni, hogy 12cm, de ez érvényes mérték, egy "h"-t nem fogadna el.
+                        //ez csak egy autocorrect funkció
+
+                    }catch(invalid_argument)
+                    {
+                        cout<<mertek[temp]<<" ervenytelen. Beolvasas vege."<<endl;
+                        break;
+                    }
+                }else
+                {
+                    cout<<mertek[temp]<<" ervenytelen. Beolvasas vege."<<endl;
                     break;
                 }
             }
+            temp++;
         }
     }
 };
