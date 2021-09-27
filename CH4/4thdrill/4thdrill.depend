@@ -1,10 +1,8 @@
 # depslib dependency file v1.0
-1631954284 source:d:\ifksp\bevprog\ch3\3thdrill\main.cpp
-	<iostream>
-	<list>
+1632675159 source:d:\ifksp\bevprog\ch4\4thdrill\main.cpp
 	"std_lib_facilities.h"
 
-1631808623 d:\ifksp\bevprog\ch3\3thdrill\std_lib_facilities.h
+1631808623 d:\ifksp\bevprog\ch4\4thdrill\std_lib_facilities.h
 	<iostream>
 	<iomanip>
 	<fstream>
