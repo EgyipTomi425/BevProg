@@ -71,45 +71,33 @@ class osztaly
         temp2=0;
 
         cout<<endl;
+        cout<<"A szamok (ismetles nelkul) novekvo sorrendben:"<<endl;
+
+        for(auto it=szam.begin();it!=szam.end();it++)
+        {
+            if(temp2<szam.size()-1 && szam[temp2]==szam[temp2+1])
+            {
+               szam.erase(it);
+               it--;
+               temp2--;
+            }
+            temp2++;
+        }
+
+        for (auto it = szam.begin(); it != szam.end(); ++it)
+        {
+            cout << ' ' << *it<<endl;
+        }
+        cout<<endl;
+
         cout<<"Az alabbi szamok majdnem egyenloek (kisebb, mint 0.01 elteres):"<<endl;
 
-        for(int i=0;i<temp.size();i=i+2)
+        for(int i=0;i<szam.size();i++)
         {
-            for(int j=i;j<i;j=j+1)
+            for(temp2=1;i-temp2>=0 && szam[i]-szam[i-temp2]<0.01 && szam[i]!=szam[i-temp2];temp2++)
             {
-                if(temp[i]>temp[j])
-                {
-                    temp2=temp[i];
-                    temp[i]=temp[j];
-                    temp[j]=temp2;
-                }
+                cout<<szam[i]<<" majdnem egyenlo "<<szam[i-temp2]<<" ("<<szam[i]-szam[i-temp2]<<") elteres."<<endl;
             }
-        }
-
-        int elteresszam=0;
-
-        for(int i=2;i<temp.size();i=i+2)
-        {
-            if(i==2 && temp[i]-temp[i-2]<0.01 && temp[i]-temp[i-2]!=0 && temp[i]!=temp[i+2])
-            {
-                 cout<<temp[i]<<" es "<<temp[i-2-temp2]<< " (kulonbseg: "<<temp[i]-temp[i-2]<<")"<<endl;
-                 elteresszam++;
-            }else
-            {
-                for(temp2=0;temp2<i-1 && temp[i]-temp[i-2-temp2]<0.01 && temp[i]-temp[i-2-temp2]!=0;temp2=temp2+2 && temp[i]!=temp[i+2])
-                {
-                    cout<<temp[i]<<" es "<<temp[i-2-temp2]<< " (kulonbseg: "<<temp[i]-temp[i-2-temp2]<<")"<<endl;
-                    elteresszam++;
-                }
-            }
-        }
-
-        if(elteresszam==0)
-        {
-            cout<<"A szamok kozott nincsenek kis kulonbsegek."<<endl;
-        }else
-        {
-            cout<<elteresszam<<" egymashoz nagyon kozeli esetet talaltam."<<endl;
         }
     }
 
@@ -194,7 +182,31 @@ class osztaly
 
     public: void verzio3()
     {
+        cout<<"Ez a verzio 3! Adjon meg hosszusagokat mertekegyseggel! (pl. 12m vgy 5 cm)"<<endl;
+        cout<<"A program elfogadja szokozzel, illetve anelkul is a hosszusagokat. (Akar felvaltva is)"<<endl;
+        cout<<"Negativ szamokat pozitivra cserel."<<endl;
+        cout<<"(| jel kilep a programbol.)"<<endl;
+        const string meter={"m"};
+        const string centimeter={"cm"};
+        const string inch={"in"};
+        const string feet={"ft"};
 
+        while(cin>>x)
+        {
+            try
+            {
+                szam.push_back(stod(x));
+            }catch(invalid_argument)
+            {
+                if(x=="|")
+                {
+                    simple_error("| parancs vegrehajtva. Program vege!");
+                }else{
+                    cout<<x<<" ervenytelen. Beolvasas vege."<<endl;
+                    break;
+                }
+            }
+        }
     }
 };
 
