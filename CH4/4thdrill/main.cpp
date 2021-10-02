@@ -14,7 +14,7 @@ class osztaly
 
     public: bool mertekegyseg()
     {
-        if(y==meter || y==centimeter || y==inch || y==feet)
+        if(x==centimeter || x==inch || x==feet || x==meter)
         {
             return true;
         }else{
@@ -117,6 +117,92 @@ class osztaly
         }
     }
 
+    public: double szorzo(int i)
+    {
+        if(mertek[i]==meter)
+        {
+            return 1;
+        }else if(mertek[i]==centimeter)
+        {
+            return 0.01;
+        }else if(mertek[i]==feet)
+        {
+            return 0.3048;
+        }else if(mertek[i]==inch)
+        {
+            return 0.0254;
+        }
+    }
+
+    public: double szorzom()
+    {
+        if(x==meter)
+        {
+            return 1;
+        }else if(x==centimeter)
+        {
+            return 1/0.01;
+        }else if(x==feet)
+        {
+            return 1/0.3048;
+        }else if(x==inch)
+        {
+            return 1/0.0254;
+        }
+    }
+
+
+    public: atvalt()
+    {
+        vector<double>ertek;
+
+        for(int i=0;i<szam.size();i++)
+        {
+            ertek.push_back(szam[i] * szorzo(i));
+            szam[i]=ertek[i];
+            mertek[i]="m";
+        }
+        sort(szam.begin(),szam.end());
+
+        for(int i=0;i<szam.size();i++)
+        {
+            szam[i]=szam[i] * szorzom();
+            mertek[i]=x;
+        }
+    }
+
+    public: sorbarendez()
+    {
+        vector<double>ertek;
+        int atmenet1=0;
+        int atmenet2=0;
+        string atmenets1="";
+
+        for(int i=0;i<szam.size();i++)
+        {
+            ertek.push_back(szam[i] * szorzo(i));
+        }
+
+        for(int i=0;i<ertek.size();i++)
+        {
+            for(int j=i;j<ertek.size();j++)
+            {
+                if(ertek[i]>ertek[j])
+                {
+                    atmenet1=ertek[i];
+                    atmenet2=szam[i];
+                    atmenets1=mertek[i];
+                    ertek[i]=ertek[j];
+                    szam[i]=szam[j];
+                    mertek[i]=mertek[j];
+                    ertek[j]=atmenet1;
+                    szam[j]=atmenet2;
+                    mertek[j]=atmenets1;
+                }
+            }
+        }
+    }
+
     public: void go()
     {
         cout<<endl;
@@ -199,17 +285,79 @@ class osztaly
     public: void verzio3()
     {
         cout<<"Ez a verzio 3! Adjon meg hosszusagokat mertekegyseggel! (pl. 12m vgy 5 cm)"<<endl;
+        cout<<"Elfogadott mertekegysegek: "<<meter<<", "<<centimeter<<", "<<inch<<", "<<feet<<endl;
         cout<<"A program elfogadja szokozzel, illetve anelkul is a hosszusagokat. (Akar felvaltva is)"<<endl;
-        cout<<"Negativ szamokat pozitivra cserel. Ha eleget irt be, irjon be valami, ami nem mertekegyseg!"<<endl;
+        cout<<"Negativ szamokat pozitivra cserel. Ha eleget irt be, irjon be valamit, ami nem mertekegyseg! (pl.: x)"<<endl;
         cout<<"(| jel kilep a programbol.)"<<endl;
 
         int temp=0;
+        stringstream ss;
+        mertek.push_back("");
 
         while(cin>>mertek[temp])
         {
             try
             {
                 szam.push_back(stod(mertek[temp]));
+                ss<<szam[szam.size()-1];
+                if(mertek[temp].find('.')==-1)
+                {
+                    x=mertek[temp].substr((ss.str()).size(),mertek[temp].size()-(ss.str()).size());
+                    y=mertek[temp].substr(0,(ss.str()).size());
+                }else{
+                    if(ss.str().size()+1<mertek[temp].size())
+                    {
+                        szam.push_back(mertek[temp].find('.')+1);
+                        mertek.push_back(mertek[temp].substr(szam[temp+1],mertek[temp].size()-szam[temp+1]));
+                        szam[temp+1]=stoi(mertek[temp+1]);
+                        ss.str("");
+                        ss<<(int)szam[temp];
+                        y=ss.str();
+                        y+=".";
+                        ss.str("");
+                        ss<<szam[temp+1];
+                        y+=ss.str();
+                        x=mertek[temp].substr(y.size(),mertek[temp].size()-y.size());
+                        szam.pop_back();
+                        mertek.pop_back();
+                    }else{
+                        x=mertek[temp].substr((ss.str()).size(),mertek[temp].size()-(ss.str()).size());
+                        y=mertek[temp].substr(0,(ss.str()).size());
+                        }
+                }
+                if(mertekegyseg())
+                {
+                    mertek[temp]=x;
+                    if(abs(stod(y))!=stod(y))
+                    {
+                        y=y.substr(1,y.size()-1);
+                        cout<<"Negativ szam nincs ertelmezve. -"<<y<<" javitva: "<<y<<endl;
+                    }
+                    szam.pop_back();
+                    szam.push_back(stod(y));
+                }else if(y==mertek[temp])
+                {
+                    cin>>x;
+                    if(mertekegyseg())
+                    {
+                        mertek[temp]=x;
+                        if(abs(stod(y) != stod(y)))
+                        {
+                            y=y.substr(1,y.size()-1);
+                            cout<<"Negativ szam nincs ertelmezve. -"<<y<<" javitva: "<<y<<endl;
+                        }
+                        szam.pop_back();
+                        szam.push_back(stod(y));
+                    }else{
+                        cout<<mertek[temp]<<" ervenytelen. Beolvasas vege."<<endl;
+                        break;
+                    }
+                }else
+                {
+                        cout<<mertek[temp]<<" ervenytelen. Beolvasas vege."<<endl;
+                        szam.pop_back();
+                        break;
+                }
             }catch(invalid_argument)
             {
                 if(mertek[temp]=="|")
@@ -220,10 +368,6 @@ class osztaly
                     try
                     {
                         szam.push_back(stod(mertek[temp]));
-                        //Igen, így ha pl. beírjuk, hogy 12m cm, akkor a másodiket úgy fogja
-                        //venni, hogy 12cm, de ez érvényes mérték, egy "h"-t nem fogadna el.
-                        //ez csak egy autocorrect funkció
-
                     }catch(invalid_argument)
                     {
                         cout<<mertek[temp]<<" ervenytelen. Beolvasas vege."<<endl;
@@ -236,6 +380,48 @@ class osztaly
                 }
             }
             temp++;
+            ss.str("");
+            mertek.push_back("");
+        }
+        mertek.pop_back();
+
+        cout<<endl;
+        cout<<"Beolvasott ertekek:"<<endl;
+        for(int i=0;i<szam.size();i++)
+        {
+            cout<<szam[i]<<mertek[i]<<endl;
+        }
+        cout<<endl;
+
+        sorbarendez();
+
+        cout<<"Elemszam: "<<szam.size()<<endl;
+        cout<<"Sorbarendezes utan:"<<endl;
+        for(int i=0;i<szam.size();i++)
+        {
+            cout<<szam[i]<<mertek[i]<<endl;
+        }
+        cout<<endl;
+        cout<<"Elemszam: "<<szam.size()<<endl;
+        cout<<"Legkisebb: "<<szam[0]<<mertek[0]<<endl;
+        cout<<"Legnagyobb: "<<szam[szam.size()-1]<<mertek[mertek.size()-1]<<endl;
+        cout<<endl;
+
+        cout<<"Milyen mertekegysegben szeretne dolgozni? (pl.: in, ft, m, cm)"<<endl;
+        cout<<"(Ervenytelen ertek eseten meter lesz az eredmeny.)"<<endl;
+        cin>>x;
+        cout<<endl;
+        if(mertekegyseg()==false)
+        {
+            x="m";
+        }
+
+        atvalt();
+
+        cout<<"Ertekek atvaltas utan:"<<endl;
+        for(int i=0; i<szam.size();i++)
+        {
+            cout<<szam[i]<<mertek[i]<<endl;
         }
     }
 };
