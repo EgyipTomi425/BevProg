@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1633264755 source:d:\ifksp\bevprog\ch5\errors\main.cpp
+	<iostream>
+	"std_lib_facilities.h"
+
+1631808623 d:\ifksp\bevprog\ch5\errors\std_lib_facilities.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<forward_list>
+	<vector>
+	<unordered_map>
+	<algorithm>
+	<array>
+	<regex>
+	<random>
+	<stdexcept>
+
