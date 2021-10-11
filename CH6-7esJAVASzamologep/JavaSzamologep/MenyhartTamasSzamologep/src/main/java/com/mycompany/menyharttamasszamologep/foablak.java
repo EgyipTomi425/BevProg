@@ -5,6 +5,8 @@
  */
 package com.mycompany.menyharttamasszamologep;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author EgyipTomi425
@@ -17,7 +19,54 @@ public class foablak extends javax.swing.JFrame {
     public foablak() {
         initComponents();
     }
-
+    
+    ArrayList<String>muvsor=new ArrayList<String>();
+    ArrayList<String>power=new ArrayList<String>();
+    String text;
+    
+    void muveletek()
+    {
+        muvsor.add("(");
+        power.add("a");
+        muvsor.add(")");
+        power.add("a");
+        muvsor.add("pow");
+        power.add("b");
+        muvsor.add("*");
+        power.add("c");
+        muvsor.add("/");
+        power.add("c");
+        muvsor.add("+");
+        power.add("d");
+        muvsor.add("-");
+        power.add("d");
+    }
+    
+    void kifertelmezes()
+    {
+        text=inputslot.getText();
+        ArrayList<String>szamok=new ArrayList<String>();
+        szamok.add("0");
+        szamok.add("1");
+        szamok.add("2");
+        szamok.add("3");
+        szamok.add("4");
+        szamok.add("5");
+        szamok.add("6");
+        szamok.add("7");
+        szamok.add("8");
+        szamok.add("9");
+        for(int i=0;i<muvsor.size();i++)
+        {
+            szamok.add(muvsor.get(i));
+        }
+        int index=text.indexOf("sqrt(");
+        if(index>=0)
+        {
+            String  kifsubstr=text.substring(index,text.length());
+            outputslot.setText(kifsubstr);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,14 +77,35 @@ public class foablak extends javax.swing.JFrame {
     private void initComponents() {
 
         fopanel = new javax.swing.JPanel();
-        inputslot = new java.awt.TextField();
-        bemenetlabel = new javax.swing.JLabel();
         outputslot = new java.awt.TextField();
+        bemenetlabel = new javax.swing.JLabel();
+        inputslot = new java.awt.TextField();
         kimenetlabel = new javax.swing.JLabel();
         userinterface = new javax.swing.JPanel();
         szamok = new javax.swing.JPanel();
         egyes = new javax.swing.JButton();
+        kettes = new javax.swing.JButton();
+        harmas = new javax.swing.JButton();
+        negyes = new javax.swing.JButton();
+        otos = new javax.swing.JButton();
+        hatos = new javax.swing.JButton();
+        hetes = new javax.swing.JButton();
+        nyolcas = new javax.swing.JButton();
+        kilences = new javax.swing.JButton();
+        nullas = new javax.swing.JButton();
+        xgomb = new javax.swing.JButton();
+        ygomb = new javax.swing.JButton();
         muveletjelpanel = new javax.swing.JPanel();
+        bosszeadas = new javax.swing.JButton();
+        bkivonas = new javax.swing.JButton();
+        bosszeadas1 = new javax.swing.JButton();
+        bosszeadas2 = new javax.swing.JButton();
+        bosszeadas3 = new javax.swing.JButton();
+        bosszeadas4 = new javax.swing.JButton();
+        bnyitozarojel = new javax.swing.JButton();
+        bbezarozarojel = new javax.swing.JButton();
+        btorles = new javax.swing.JButton();
+        begyenlosegjel = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         muveletijelek = new javax.swing.JMenu();
         osszeadas = new javax.swing.JCheckBoxMenuItem();
@@ -44,25 +114,16 @@ public class foablak extends javax.swing.JFrame {
         osztas = new javax.swing.JCheckBoxMenuItem();
         hatvanyozas = new javax.swing.JCheckBoxMenuItem();
         gyokvonas = new javax.swing.JCheckBoxMenuItem();
-        csakegymenu = new javax.swing.JMenu();
+        nyitozarojel = new javax.swing.JCheckBoxMenuItem();
+        bezarozarojel = new javax.swing.JCheckBoxMenuItem();
+        torles = new javax.swing.JCheckBoxMenuItem();
+        egyenlosegjel = new javax.swing.JCheckBoxMenuItem();
         fejleszto = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        inputslot.setBackground(new java.awt.Color(102, 255, 255));
-        inputslot.setEditable(false);
-        inputslot.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        inputslot.setText("");
-        inputslot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputslotActionPerformed(evt);
-            }
-        });
-
-        bemenetlabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bemenetlabel.setText("Bemenet:");
-
-        outputslot.setBackground(new java.awt.Color(102, 255, 102));
+        outputslot.setBackground(new java.awt.Color(102, 255, 255));
+        outputslot.setEditable(false);
         outputslot.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         outputslot.setText("");
         outputslot.addActionListener(new java.awt.event.ActionListener() {
@@ -71,32 +132,447 @@ public class foablak extends javax.swing.JFrame {
             }
         });
 
+        bemenetlabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bemenetlabel.setText("Bemenet:");
+
+        inputslot.setBackground(new java.awt.Color(102, 255, 102));
+        inputslot.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        inputslot.setText("");
+        inputslot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputslotActionPerformed(evt);
+            }
+        });
+
         kimenetlabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         kimenetlabel.setText("Kimenet:");
 
-        userinterface.setLayout(new java.awt.BorderLayout());
-
-        szamok.setLayout(new javax.swing.BoxLayout(szamok, javax.swing.BoxLayout.LINE_AXIS));
+        szamok.setMaximumSize(new java.awt.Dimension(150, 200));
+        szamok.setMinimumSize(new java.awt.Dimension(150, 200));
 
         egyes.setBackground(new java.awt.Color(0, 255, 51));
-        egyes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        egyes.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
         egyes.setText("1");
+        egyes.setMaximumSize(new java.awt.Dimension(50, 50));
+        egyes.setMinimumSize(new java.awt.Dimension(50, 50));
+        egyes.setPreferredSize(new java.awt.Dimension(50, 50));
+        egyes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                egyesActionPerformed(evt);
+            }
+        });
         szamok.add(egyes);
 
-        userinterface.add(szamok, java.awt.BorderLayout.CENTER);
+        kettes.setBackground(new java.awt.Color(0, 255, 51));
+        kettes.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        kettes.setText("2");
+        kettes.setMaximumSize(new java.awt.Dimension(50, 50));
+        kettes.setMinimumSize(new java.awt.Dimension(50, 50));
+        kettes.setPreferredSize(new java.awt.Dimension(50, 50));
+        kettes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kettesActionPerformed(evt);
+            }
+        });
+        szamok.add(kettes);
 
-        javax.swing.GroupLayout muveletjelpanelLayout = new javax.swing.GroupLayout(muveletjelpanel);
-        muveletjelpanel.setLayout(muveletjelpanelLayout);
-        muveletjelpanelLayout.setHorizontalGroup(
-            muveletjelpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 34, Short.MAX_VALUE)
-        );
-        muveletjelpanelLayout.setVerticalGroup(
-            muveletjelpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 25, Short.MAX_VALUE)
-        );
+        harmas.setBackground(new java.awt.Color(0, 255, 51));
+        harmas.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        harmas.setText("3");
+        harmas.setMaximumSize(new java.awt.Dimension(50, 50));
+        harmas.setMinimumSize(new java.awt.Dimension(50, 50));
+        harmas.setPreferredSize(new java.awt.Dimension(50, 50));
+        harmas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                harmasActionPerformed(evt);
+            }
+        });
+        szamok.add(harmas);
 
-        userinterface.add(muveletjelpanel, java.awt.BorderLayout.EAST);
+        negyes.setBackground(new java.awt.Color(0, 255, 51));
+        negyes.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        negyes.setText("4");
+        negyes.setMaximumSize(new java.awt.Dimension(50, 50));
+        negyes.setMinimumSize(new java.awt.Dimension(50, 50));
+        negyes.setPreferredSize(new java.awt.Dimension(50, 50));
+        negyes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                negyesActionPerformed(evt);
+            }
+        });
+        szamok.add(negyes);
+
+        otos.setBackground(new java.awt.Color(0, 255, 51));
+        otos.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        otos.setText("5");
+        otos.setMaximumSize(new java.awt.Dimension(50, 50));
+        otos.setMinimumSize(new java.awt.Dimension(50, 50));
+        otos.setPreferredSize(new java.awt.Dimension(50, 50));
+        otos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otosActionPerformed(evt);
+            }
+        });
+        szamok.add(otos);
+
+        hatos.setBackground(new java.awt.Color(0, 255, 51));
+        hatos.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        hatos.setText("6");
+        hatos.setMaximumSize(new java.awt.Dimension(50, 50));
+        hatos.setMinimumSize(new java.awt.Dimension(50, 50));
+        hatos.setPreferredSize(new java.awt.Dimension(50, 50));
+        hatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hatosActionPerformed(evt);
+            }
+        });
+        szamok.add(hatos);
+
+        hetes.setBackground(new java.awt.Color(0, 255, 51));
+        hetes.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        hetes.setText("7");
+        hetes.setMaximumSize(new java.awt.Dimension(50, 50));
+        hetes.setMinimumSize(new java.awt.Dimension(50, 50));
+        hetes.setPreferredSize(new java.awt.Dimension(50, 50));
+        hetes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hetesActionPerformed(evt);
+            }
+        });
+        szamok.add(hetes);
+
+        nyolcas.setBackground(new java.awt.Color(0, 255, 51));
+        nyolcas.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        nyolcas.setText("8");
+        nyolcas.setMaximumSize(new java.awt.Dimension(50, 50));
+        nyolcas.setMinimumSize(new java.awt.Dimension(50, 50));
+        nyolcas.setPreferredSize(new java.awt.Dimension(50, 50));
+        nyolcas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nyolcasActionPerformed(evt);
+            }
+        });
+        szamok.add(nyolcas);
+
+        kilences.setBackground(new java.awt.Color(0, 255, 51));
+        kilences.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        kilences.setText("9");
+        kilences.setMaximumSize(new java.awt.Dimension(50, 50));
+        kilences.setMinimumSize(new java.awt.Dimension(50, 50));
+        kilences.setPreferredSize(new java.awt.Dimension(50, 50));
+        kilences.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kilencesActionPerformed(evt);
+            }
+        });
+        szamok.add(kilences);
+
+        nullas.setBackground(new java.awt.Color(0, 255, 51));
+        nullas.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        nullas.setText("0");
+        nullas.setMaximumSize(new java.awt.Dimension(50, 50));
+        nullas.setMinimumSize(new java.awt.Dimension(50, 50));
+        nullas.setPreferredSize(new java.awt.Dimension(50, 50));
+        nullas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nullasActionPerformed(evt);
+            }
+        });
+        szamok.add(nullas);
+
+        xgomb.setBackground(new java.awt.Color(0, 255, 51));
+        xgomb.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        xgomb.setText("x");
+        xgomb.setMaximumSize(new java.awt.Dimension(50, 50));
+        xgomb.setMinimumSize(new java.awt.Dimension(50, 50));
+        xgomb.setPreferredSize(new java.awt.Dimension(50, 50));
+        szamok.add(xgomb);
+
+        ygomb.setBackground(new java.awt.Color(0, 255, 51));
+        ygomb.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
+        ygomb.setText("y");
+        ygomb.setMaximumSize(new java.awt.Dimension(50, 50));
+        ygomb.setMinimumSize(new java.awt.Dimension(50, 50));
+        ygomb.setPreferredSize(new java.awt.Dimension(50, 50));
+        szamok.add(ygomb);
+
+        bosszeadas.setBackground(new java.awt.Color(255, 255, 255));
+        bosszeadas.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bosszeadas.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/IXgglOn.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bosszeadas.setToolTipText("");
+        bosszeadas.setBorder(null);
+        bosszeadas.setMaximumSize(new java.awt.Dimension(50, 50));
+        bosszeadas.setMinimumSize(new java.awt.Dimension(0, 0));
+        bosszeadas.setName(""); // NOI18N
+        bosszeadas.setPreferredSize(new java.awt.Dimension(50, 50));
+        bosszeadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bosszeadasActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bosszeadas);
+
+        bkivonas.setBackground(new java.awt.Color(255, 255, 255));
+        bkivonas.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bkivonas.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/E1zvKG7.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bkivonas.setBorder(null);
+        bkivonas.setMaximumSize(new java.awt.Dimension(50, 50));
+        bkivonas.setMinimumSize(new java.awt.Dimension(0, 0));
+        bkivonas.setPreferredSize(new java.awt.Dimension(50, 50));
+        bkivonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bkivonasActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bkivonas);
+
+        bosszeadas1.setBackground(new java.awt.Color(255, 255, 255));
+        bosszeadas1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bosszeadas1.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/BJ4yusU.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bosszeadas1.setToolTipText("");
+        bosszeadas1.setBorder(null);
+        bosszeadas1.setMaximumSize(new java.awt.Dimension(50, 50));
+        bosszeadas1.setMinimumSize(new java.awt.Dimension(0, 0));
+        bosszeadas1.setName(""); // NOI18N
+        bosszeadas1.setPreferredSize(new java.awt.Dimension(50, 50));
+        bosszeadas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bosszeadas1ActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bosszeadas1);
+
+        bosszeadas2.setBackground(new java.awt.Color(255, 255, 255));
+        bosszeadas2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bosszeadas2.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/wxRhK3i.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bosszeadas2.setToolTipText("");
+        bosszeadas2.setBorder(null);
+        bosszeadas2.setMaximumSize(new java.awt.Dimension(50, 50));
+        bosszeadas2.setMinimumSize(new java.awt.Dimension(0, 0));
+        bosszeadas2.setName(""); // NOI18N
+        bosszeadas2.setPreferredSize(new java.awt.Dimension(50, 50));
+        bosszeadas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bosszeadas2ActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bosszeadas2);
+
+        bosszeadas3.setBackground(new java.awt.Color(255, 255, 255));
+        bosszeadas3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bosszeadas3.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/BPVKHpZ.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bosszeadas3.setToolTipText("");
+        bosszeadas3.setBorder(null);
+        bosszeadas3.setMaximumSize(new java.awt.Dimension(50, 50));
+        bosszeadas3.setMinimumSize(new java.awt.Dimension(0, 0));
+        bosszeadas3.setName(""); // NOI18N
+        bosszeadas3.setPreferredSize(new java.awt.Dimension(50, 50));
+        bosszeadas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bosszeadas3ActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bosszeadas3);
+
+        bosszeadas4.setBackground(new java.awt.Color(255, 255, 255));
+        bosszeadas4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bosszeadas4.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/YPyBcOe.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bosszeadas4.setToolTipText("");
+        bosszeadas4.setBorder(null);
+        bosszeadas4.setMaximumSize(new java.awt.Dimension(50, 50));
+        bosszeadas4.setMinimumSize(new java.awt.Dimension(0, 0));
+        bosszeadas4.setName(""); // NOI18N
+        bosszeadas4.setPreferredSize(new java.awt.Dimension(50, 50));
+        bosszeadas4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bosszeadas4ActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bosszeadas4);
+
+        bnyitozarojel.setBackground(new java.awt.Color(255, 255, 255));
+        bnyitozarojel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bnyitozarojel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/4xnGmGs.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bnyitozarojel.setToolTipText("");
+        bnyitozarojel.setBorder(null);
+        bnyitozarojel.setMaximumSize(new java.awt.Dimension(50, 50));
+        bnyitozarojel.setMinimumSize(new java.awt.Dimension(0, 0));
+        bnyitozarojel.setName(""); // NOI18N
+        bnyitozarojel.setPreferredSize(new java.awt.Dimension(50, 50));
+        bnyitozarojel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnyitozarojelActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bnyitozarojel);
+
+        bbezarozarojel.setBackground(new java.awt.Color(255, 255, 255));
+        bbezarozarojel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        bbezarozarojel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/w5eLMzB.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bbezarozarojel.setToolTipText("");
+        bbezarozarojel.setBorder(null);
+        bbezarozarojel.setMaximumSize(new java.awt.Dimension(50, 50));
+        bbezarozarojel.setMinimumSize(new java.awt.Dimension(0, 0));
+        bbezarozarojel.setName(""); // NOI18N
+        bbezarozarojel.setPreferredSize(new java.awt.Dimension(50, 50));
+        bbezarozarojel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbezarozarojelActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(bbezarozarojel);
+
+        btorles.setBackground(new java.awt.Color(255, 255, 255));
+        btorles.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btorles.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/5BUQAEv.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        btorles.setToolTipText("");
+        btorles.setBorder(null);
+        btorles.setMaximumSize(new java.awt.Dimension(50, 50));
+        btorles.setMinimumSize(new java.awt.Dimension(0, 0));
+        btorles.setName(""); // NOI18N
+        btorles.setPreferredSize(new java.awt.Dimension(50, 50));
+        btorles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btorlesActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(btorles);
+
+        begyenlosegjel.setBackground(new java.awt.Color(255, 255, 255));
+        begyenlosegjel.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        begyenlosegjel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/3fxHcBe.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        begyenlosegjel.setToolTipText("");
+        begyenlosegjel.setBorder(null);
+        begyenlosegjel.setMaximumSize(new java.awt.Dimension(50, 50));
+        begyenlosegjel.setMinimumSize(new java.awt.Dimension(0, 0));
+        begyenlosegjel.setName(""); // NOI18N
+        begyenlosegjel.setPreferredSize(new java.awt.Dimension(50, 50));
+        begyenlosegjel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                begyenlosegjelActionPerformed(evt);
+            }
+        });
+        muveletjelpanel.add(begyenlosegjel);
+
+        javax.swing.GroupLayout userinterfaceLayout = new javax.swing.GroupLayout(userinterface);
+        userinterface.setLayout(userinterfaceLayout);
+        userinterfaceLayout.setHorizontalGroup(
+            userinterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userinterfaceLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(szamok, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(muveletjelpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        userinterfaceLayout.setVerticalGroup(
+            userinterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userinterfaceLayout.createSequentialGroup()
+                .addGroup(userinterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(szamok, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(muveletjelpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout fopanelLayout = new javax.swing.GroupLayout(fopanel);
         fopanel.setLayout(fopanelLayout);
@@ -106,14 +582,16 @@ public class foablak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(fopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userinterface, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inputslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(outputslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(fopanelLayout.createSequentialGroup()
                         .addGroup(fopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bemenetlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(kimenetlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fopanelLayout.createSequentialGroup()
+                        .addGroup(fopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(outputslot, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputslot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         fopanelLayout.setVerticalGroup(
             fopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,19 +599,22 @@ public class foablak extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(bemenetlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(outputslot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputslot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kimenetlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputslot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(outputslot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userinterface, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(userinterface, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         muveletijelek.setText("Műveleti Jelek");
+        muveletijelek.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                muveletijelekStateChanged(evt);
+            }
+        });
 
-        osszeadas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         osszeadas.setSelected(true);
         osszeadas.setText("Összeadás");
         osszeadas.setIcon(new javax.swing.JLabel() {
@@ -147,6 +628,16 @@ public class foablak extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+        osszeadas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                osszeadasStateChanged(evt);
+            }
+        });
+        osszeadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                osszeadasMouseClicked(evt);
+            }
+        });
         osszeadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 osszeadasActionPerformed(evt);
@@ -154,7 +645,6 @@ public class foablak extends javax.swing.JFrame {
         });
         muveletijelek.add(osszeadas);
 
-        kivonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_MINUS, 0));
         kivonas.setSelected(true);
         kivonas.setText("Kivonás");
         kivonas.setIcon(new javax.swing.JLabel() {
@@ -168,9 +658,13 @@ public class foablak extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+        kivonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kivonasActionPerformed(evt);
+            }
+        });
         muveletijelek.add(kivonas);
 
-        szorzas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_MINUS, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         szorzas.setSelected(true);
         szorzas.setText("Szorzás");
         szorzas.setIcon(new javax.swing.JLabel() {
@@ -186,7 +680,6 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         muveletijelek.add(szorzas);
 
-        osztas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         osztas.setSelected(true);
         osztas.setText("Osztás");
         osztas.setIcon(new javax.swing.JLabel() {
@@ -202,9 +695,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         muveletijelek.add(osztas);
 
-        hatvanyozas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         hatvanyozas.setSelected(true);
-        hatvanyozas.setText("Hatványozás");
+        hatvanyozas.setText("Hatványozás (pow(a,b))");
         hatvanyozas.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -216,11 +708,15 @@ public class foablak extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+        hatvanyozas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hatvanyozasActionPerformed(evt);
+            }
+        });
         muveletijelek.add(hatvanyozas);
 
-        gyokvonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         gyokvonas.setSelected(true);
-        gyokvonas.setText("Gyökvonás");
+        gyokvonas.setText("Gyökvonás (sqrt(a,b))");
         gyokvonas.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -232,12 +728,114 @@ public class foablak extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
+        gyokvonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gyokvonasActionPerformed(evt);
+            }
+        });
         muveletijelek.add(gyokvonas);
 
-        jMenuBar1.add(muveletijelek);
+        nyitozarojel.setSelected(true);
+        nyitozarojel.setText("Nyitó Zárójel");
+        nyitozarojel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/4xnGmGs.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        nyitozarojel.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                nyitozarojelStateChanged(evt);
+            }
+        });
+        nyitozarojel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nyitozarojelMouseClicked(evt);
+            }
+        });
+        nyitozarojel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nyitozarojelActionPerformed(evt);
+            }
+        });
+        muveletijelek.add(nyitozarojel);
 
-        csakegymenu.setText("_________________________________________________________");
-        jMenuBar1.add(csakegymenu);
+        bezarozarojel.setSelected(true);
+        bezarozarojel.setText("Záró Zárójel");
+        bezarozarojel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/w5eLMzB.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        bezarozarojel.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                bezarozarojelStateChanged(evt);
+            }
+        });
+        bezarozarojel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bezarozarojelMouseClicked(evt);
+            }
+        });
+        bezarozarojel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bezarozarojelActionPerformed(evt);
+            }
+        });
+        muveletijelek.add(bezarozarojel);
+
+        torles.setSelected(true);
+        torles.setText("Törlés");
+        torles.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/5BUQAEv.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        torles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                torlesActionPerformed(evt);
+            }
+        });
+        muveletijelek.add(torles);
+
+        egyenlosegjel.setSelected(true);
+        egyenlosegjel.setText("Egyenlőségjel");
+        egyenlosegjel.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://i.imgur.com/3fxHcBe.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        egyenlosegjel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                egyenlosegjelActionPerformed(evt);
+            }
+        });
+        muveletijelek.add(egyenlosegjel);
+
+        jMenuBar1.add(muveletijelek);
 
         fejleszto.setText("Fejlesztő: Menyhárt Tamás (DE-IK)");
         jMenuBar1.add(fejleszto);
@@ -268,13 +866,170 @@ public class foablak extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_osszeadasActionPerformed
 
+    private void outputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputslotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputslotActionPerformed
+
     private void inputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputslotActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputslotActionPerformed
 
-    private void outputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputslotActionPerformed
+    private void kettesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kettesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_outputslotActionPerformed
+        inputslot.setText(inputslot.getText()+"2");
+    }//GEN-LAST:event_kettesActionPerformed
+
+    private void egyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"1");
+    }//GEN-LAST:event_egyesActionPerformed
+
+    private void bosszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadasActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"+");
+    }//GEN-LAST:event_bosszeadasActionPerformed
+
+    private void muveletijelekStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_muveletijelekStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_muveletijelekStateChanged
+
+    private void osszeadasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_osszeadasStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_osszeadasStateChanged
+
+    private void bkivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkivonasActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"-");
+    }//GEN-LAST:event_bkivonasActionPerformed
+
+    private void kivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kivonasActionPerformed
+
+    private void osszeadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_osszeadasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_osszeadasMouseClicked
+
+    private void bosszeadas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas1ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"*");
+    }//GEN-LAST:event_bosszeadas1ActionPerformed
+
+    private void bosszeadas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas2ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"/");
+    }//GEN-LAST:event_bosszeadas2ActionPerformed
+
+    private void bosszeadas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas3ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"pow(");
+    }//GEN-LAST:event_bosszeadas3ActionPerformed
+
+    private void bosszeadas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas4ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"sqrt(");
+    }//GEN-LAST:event_bosszeadas4ActionPerformed
+
+    private void egyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyenlosegjelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_egyenlosegjelActionPerformed
+
+    private void begyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_begyenlosegjelActionPerformed
+        // TODO add your handling code here:
+        muveletek();
+        kifertelmezes();
+    }//GEN-LAST:event_begyenlosegjelActionPerformed
+
+    private void btorlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btorlesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText().substring(0,inputslot.getText().length()-1));
+    }//GEN-LAST:event_btorlesActionPerformed
+
+    private void torlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torlesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_torlesActionPerformed
+
+    private void nyitozarojelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nyitozarojelStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nyitozarojelStateChanged
+
+    private void nyitozarojelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nyitozarojelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nyitozarojelMouseClicked
+
+    private void nyitozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyitozarojelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nyitozarojelActionPerformed
+
+    private void bezarozarojelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bezarozarojelStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bezarozarojelStateChanged
+
+    private void bezarozarojelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bezarozarojelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bezarozarojelMouseClicked
+
+    private void bezarozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bezarozarojelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bezarozarojelActionPerformed
+
+    private void bnyitozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnyitozarojelActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"(");
+    }//GEN-LAST:event_bnyitozarojelActionPerformed
+
+    private void bbezarozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbezarozarojelActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+")");
+    }//GEN-LAST:event_bbezarozarojelActionPerformed
+
+    private void harmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_harmasActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"3");
+    }//GEN-LAST:event_harmasActionPerformed
+
+    private void negyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_negyesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"4");
+    }//GEN-LAST:event_negyesActionPerformed
+
+    private void hatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatosActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"6");
+    }//GEN-LAST:event_hatosActionPerformed
+
+    private void otosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otosActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"5");
+    }//GEN-LAST:event_otosActionPerformed
+
+    private void hetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hetesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"7");
+    }//GEN-LAST:event_hetesActionPerformed
+
+    private void nyolcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nyolcasActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"8");
+    }//GEN-LAST:event_nyolcasActionPerformed
+
+    private void kilencesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kilencesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"9");
+    }//GEN-LAST:event_kilencesActionPerformed
+
+    private void nullasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nullasActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"0");
+    }//GEN-LAST:event_nullasActionPerformed
+
+    private void gyokvonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gyokvonasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gyokvonasActionPerformed
+
+    private void hatvanyozasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatvanyozasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hatvanyozasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,28 +1063,52 @@ public class foablak extends javax.swing.JFrame {
             public void run() {
                 new foablak().setVisible(true);
             }
-        });
+        });        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bbezarozarojel;
+    private javax.swing.JButton begyenlosegjel;
     private javax.swing.JLabel bemenetlabel;
-    private javax.swing.JMenu csakegymenu;
+    private javax.swing.JCheckBoxMenuItem bezarozarojel;
+    private javax.swing.JButton bkivonas;
+    private javax.swing.JButton bnyitozarojel;
+    private javax.swing.JButton bosszeadas;
+    private javax.swing.JButton bosszeadas1;
+    private javax.swing.JButton bosszeadas2;
+    private javax.swing.JButton bosszeadas3;
+    private javax.swing.JButton bosszeadas4;
+    private javax.swing.JButton btorles;
+    private javax.swing.JCheckBoxMenuItem egyenlosegjel;
     private javax.swing.JButton egyes;
     private javax.swing.JMenu fejleszto;
     private javax.swing.JPanel fopanel;
     private javax.swing.JCheckBoxMenuItem gyokvonas;
+    private javax.swing.JButton harmas;
+    private javax.swing.JButton hatos;
     private javax.swing.JCheckBoxMenuItem hatvanyozas;
+    private javax.swing.JButton hetes;
     private java.awt.TextField inputslot;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton kettes;
+    private javax.swing.JButton kilences;
     private javax.swing.JLabel kimenetlabel;
     private javax.swing.JCheckBoxMenuItem kivonas;
     private javax.swing.JMenu muveletijelek;
     private javax.swing.JPanel muveletjelpanel;
+    private javax.swing.JButton negyes;
+    private javax.swing.JButton nullas;
+    private javax.swing.JCheckBoxMenuItem nyitozarojel;
+    private javax.swing.JButton nyolcas;
     private javax.swing.JCheckBoxMenuItem osszeadas;
     private javax.swing.JCheckBoxMenuItem osztas;
+    private javax.swing.JButton otos;
     private java.awt.TextField outputslot;
     private javax.swing.JPanel szamok;
     private javax.swing.JCheckBoxMenuItem szorzas;
+    private javax.swing.JCheckBoxMenuItem torles;
     private javax.swing.JPanel userinterface;
+    private javax.swing.JButton xgomb;
+    private javax.swing.JButton ygomb;
     // End of variables declaration//GEN-END:variables
 }
