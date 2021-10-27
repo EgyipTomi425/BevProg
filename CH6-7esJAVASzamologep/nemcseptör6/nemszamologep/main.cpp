@@ -5,7 +5,6 @@
 	© 2020 Renátó Besenczi, according to CC0. Questions: renato.besenczi@gmail.com
 	Input from cin; output to cout. Input comes from cin through the Token_stream called ts.
 	Grammar:
-
 	Calculation:
 		Statement
 		Print
@@ -266,11 +265,15 @@ double primary()
         {
             double a=0;
             double b=0;
-            Token t=ts.get();
-     //     if(t.kind()!='(')error("'(' expected");
+            t=ts.get();
+            if(t.kind!='(')error("'(' expected");
             a=expression();
             t=ts.get();
+            if(t.kind!=',')error("',' expected");
             b=expression();
+            t = ts.get();
+      	if (t.kind != ')') error("')' expected");
+
             return(pow(a,b));
         }
 		case '(':
@@ -386,5 +389,3 @@ double statement()
 	}
 }
 //Functions mapping grammar rules end //////////////////////////
-
-// Program end!
