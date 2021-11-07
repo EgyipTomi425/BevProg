@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1633199501 source:d:\ifksp\bevprog\ch4\4thdrill\main.cpp
+1635335411 source:d:\ifksp\bevprog\ch6-7esjavaszamologep\nemcseptör6\nemszamologep\main.cpp
 	"std_lib_facilities.h"
 
-1631805023 d:\ifksp\bevprog\ch4\4thdrill\std_lib_facilities.h
+1631805023 d:\ifksp\bevprog\ch6-7esjavaszamologep\nemcseptör6\nemszamologep\std_lib_facilities.h
 	<iostream>
 	<iomanip>
 	<fstream>
