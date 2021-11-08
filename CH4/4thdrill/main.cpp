@@ -152,7 +152,7 @@ class osztaly
     }
 
 
-    public: atvalt()
+    public: void atvalt()
     {
         vector<double>ertek;
 
@@ -171,7 +171,7 @@ class osztaly
         }
     }
 
-    public: sorbarendez()
+    public: void sorbarendez()
     {
         vector<double>ertek;
         int atmenet1=0;
