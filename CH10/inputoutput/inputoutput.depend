@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1636734757 source:d:\ifksp\bevprog\ch10\inputoutput\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+
