@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1636994674 source:c:\users\hallgato\bevprog\bevprog\ch11\memoria\main.cpp
+	"std_lib_facilities.h"
+	<vector>
+
+1636384291 c:\users\hallgato\bevprog\bevprog\ch11\memoria\std_lib_facilities.h
+	<iostream>
+	<iomanip>
+	<fstream>
+	<sstream>
+	<cmath>
+	<cstdlib>
+	<string>
+	<list>
+	<forward_list>
+	<vector>
+	<unordered_map>
+	<algorithm>
+	<array>
+	<regex>
+	<random>
+	<stdexcept>
+
