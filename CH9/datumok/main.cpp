@@ -3,7 +3,7 @@
 
 int main()
 {
-    date today(2021,11,8);
+    date today(2020,3,31);
     cout<<today<<endl;
     date tomorrow=today;
     tomorrow.addnap(1);
