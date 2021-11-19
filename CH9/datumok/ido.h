@@ -148,4 +148,4 @@ ostream& operator<<(ostream& os, const date& d)
         return os << '(' << d.year()<< ',' << d.month()<< ',' << d.day() << ')'<<endl;
     }
 
-if(date::szokoev(2004))cout<<"Szokoev"<<endl;
+//if(date::szokoev(2004))cout<<"Szokoev"<<endl;
