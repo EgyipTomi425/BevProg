@@ -107,6 +107,10 @@ public:
                 nap=nap-1;
             }
         }
+        if(!isvaliddate())
+        {
+            simple_error("Bad date!");
+        }
     }
 
     void addnap(int n)
