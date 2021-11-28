@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1638096846 source:d:\ifksp\bevprog\ch18\vektoros\vektorfeladat\main.cpp
+	<iostream>
+	<vector>
+
