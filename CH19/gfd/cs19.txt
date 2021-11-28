@@ -2,17 +2,17 @@
 #include <iostream>
 #include <memory>
 
-std::vector<int> suspicious()
+std::unique_ptr<std::vector<int>> suspicious()
 {
-	std::vector<int> p;
+	auto p = std::make_unique<std::vector<int>>();
 
 	for(int i; std::cin >> i; )
 	{
-		if(i) p.push_back(i);
+		if(i) p->push_back(i);
 		else throw std::exception();
 	}
 
-	return p; //Move
+	return p;
 }
 
 int main()
@@ -20,8 +20,8 @@ try {
 
 	auto p = suspicious();
 
-	for(int i = 0; i < p.size(); ++i)
-		std::cout << p.at(i) << ' ';
+	for(int i = 0; i < p->size(); ++i)
+		std::cout << p->at(i) << ' ';
 	std::cout << '\n';
 
 	return 0;
