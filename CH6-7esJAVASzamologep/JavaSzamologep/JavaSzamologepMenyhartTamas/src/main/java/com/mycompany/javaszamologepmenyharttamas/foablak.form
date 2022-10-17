@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -191,10 +191,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="userinterface" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Component id="userinterface" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="bemenetlabel" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="bemenetlabel" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                               <Component id="kimenetlabel" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -202,7 +202,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="outputslot" alignment="0" max="32767" attributes="0"/>
-                              <Component id="inputslot" max="32767" attributes="0"/>
+                              <Component id="inputslot" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -296,7 +296,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="szamok" alignment="0" max="32767" attributes="0"/>
-                          <Component id="muveletjelpanel" pref="239" max="32767" attributes="0"/>
+                          <Component id="muveletjelpanel" alignment="1" pref="223" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

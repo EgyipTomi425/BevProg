@@ -1,15 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.menyharttamasszamologep;
-
-//import java.util.ArrayList;
+package com.mycompany.javaszamologepmenyharttamas;
 
 /**
  *
- * @author EgyipTomi425
+ * @author Kecyke
  */
 public class foablak extends javax.swing.JFrame {
 
@@ -19,54 +16,7 @@ public class foablak extends javax.swing.JFrame {
     public foablak() {
         initComponents();
     }
-    /*
-    ArrayList<String>muvsor=new ArrayList<String>();
-    ArrayList<String>power=new ArrayList<String>();
-    String text;
-    
-    void muveletek()
-    {
-        muvsor.add("(");
-        power.add("a");
-        muvsor.add(")");
-        power.add("a");
-        muvsor.add("pow");
-        power.add("b");
-        muvsor.add("*");
-        power.add("c");
-        muvsor.add("/");
-        power.add("c");
-        muvsor.add("+");
-        power.add("d");
-        muvsor.add("-");
-        power.add("d");
-    }
-    
-    void kifertelmezes()
-    {
-        text=inputslot.getText();
-        ArrayList<String>szamok=new ArrayList<String>();
-        szamok.add("0");
-        szamok.add("1");
-        szamok.add("2");
-        szamok.add("3");
-        szamok.add("4");
-        szamok.add("5");
-        szamok.add("6");
-        szamok.add("7");
-        szamok.add("8");
-        szamok.add("9");
-        for(int i=0;i<muvsor.size();i++)
-        {
-            szamok.add(muvsor.get(i));
-        }
-        int index=text.indexOf("sqrt(");
-        if(index>=0)
-        {
-            String  kifsubstr=text.substring(index,text.length());
-            outputslot.setText(kifsubstr);
-        }
-    }*/
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -311,10 +261,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bosszeadas.setToolTipText("");
         bosszeadas.setBorder(null);
-        bosszeadas.setMaximumSize(new java.awt.Dimension(50, 50));
         bosszeadas.setMinimumSize(new java.awt.Dimension(0, 0));
         bosszeadas.setName(""); // NOI18N
-        bosszeadas.setPreferredSize(new java.awt.Dimension(50, 50));
         bosszeadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bosszeadasActionPerformed(evt);
@@ -336,9 +284,7 @@ public class foablak extends javax.swing.JFrame {
             }
         }.getIcon());
         bkivonas.setBorder(null);
-        bkivonas.setMaximumSize(new java.awt.Dimension(50, 50));
         bkivonas.setMinimumSize(new java.awt.Dimension(0, 0));
-        bkivonas.setPreferredSize(new java.awt.Dimension(50, 50));
         bkivonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bkivonasActionPerformed(evt);
@@ -361,10 +307,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bosszeadas1.setToolTipText("");
         bosszeadas1.setBorder(null);
-        bosszeadas1.setMaximumSize(new java.awt.Dimension(50, 50));
         bosszeadas1.setMinimumSize(new java.awt.Dimension(0, 0));
         bosszeadas1.setName(""); // NOI18N
-        bosszeadas1.setPreferredSize(new java.awt.Dimension(50, 50));
         bosszeadas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bosszeadas1ActionPerformed(evt);
@@ -387,10 +331,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bosszeadas2.setToolTipText("");
         bosszeadas2.setBorder(null);
-        bosszeadas2.setMaximumSize(new java.awt.Dimension(50, 50));
         bosszeadas2.setMinimumSize(new java.awt.Dimension(0, 0));
         bosszeadas2.setName(""); // NOI18N
-        bosszeadas2.setPreferredSize(new java.awt.Dimension(50, 50));
         bosszeadas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bosszeadas2ActionPerformed(evt);
@@ -413,10 +355,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bosszeadas3.setToolTipText("");
         bosszeadas3.setBorder(null);
-        bosszeadas3.setMaximumSize(new java.awt.Dimension(50, 50));
         bosszeadas3.setMinimumSize(new java.awt.Dimension(0, 0));
         bosszeadas3.setName(""); // NOI18N
-        bosszeadas3.setPreferredSize(new java.awt.Dimension(50, 50));
         bosszeadas3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bosszeadas3ActionPerformed(evt);
@@ -439,10 +379,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bosszeadas4.setToolTipText("");
         bosszeadas4.setBorder(null);
-        bosszeadas4.setMaximumSize(new java.awt.Dimension(50, 50));
         bosszeadas4.setMinimumSize(new java.awt.Dimension(0, 0));
         bosszeadas4.setName(""); // NOI18N
-        bosszeadas4.setPreferredSize(new java.awt.Dimension(50, 50));
         bosszeadas4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bosszeadas4ActionPerformed(evt);
@@ -465,10 +403,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bnyitozarojel.setToolTipText("");
         bnyitozarojel.setBorder(null);
-        bnyitozarojel.setMaximumSize(new java.awt.Dimension(50, 50));
         bnyitozarojel.setMinimumSize(new java.awt.Dimension(0, 0));
         bnyitozarojel.setName(""); // NOI18N
-        bnyitozarojel.setPreferredSize(new java.awt.Dimension(50, 50));
         bnyitozarojel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bnyitozarojelActionPerformed(evt);
@@ -491,10 +427,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         bbezarozarojel.setToolTipText("");
         bbezarozarojel.setBorder(null);
-        bbezarozarojel.setMaximumSize(new java.awt.Dimension(50, 50));
         bbezarozarojel.setMinimumSize(new java.awt.Dimension(0, 0));
         bbezarozarojel.setName(""); // NOI18N
-        bbezarozarojel.setPreferredSize(new java.awt.Dimension(50, 50));
         bbezarozarojel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bbezarozarojelActionPerformed(evt);
@@ -517,10 +451,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         btorles.setToolTipText("");
         btorles.setBorder(null);
-        btorles.setMaximumSize(new java.awt.Dimension(50, 50));
         btorles.setMinimumSize(new java.awt.Dimension(0, 0));
         btorles.setName(""); // NOI18N
-        btorles.setPreferredSize(new java.awt.Dimension(50, 50));
         btorles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btorlesActionPerformed(evt);
@@ -543,10 +475,8 @@ public class foablak extends javax.swing.JFrame {
         }.getIcon());
         begyenlosegjel.setToolTipText("");
         begyenlosegjel.setBorder(null);
-        begyenlosegjel.setMaximumSize(new java.awt.Dimension(50, 50));
         begyenlosegjel.setMinimumSize(new java.awt.Dimension(0, 0));
         begyenlosegjel.setName(""); // NOI18N
-        begyenlosegjel.setPreferredSize(new java.awt.Dimension(50, 50));
         begyenlosegjel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 begyenlosegjelActionPerformed(evt);
@@ -570,7 +500,7 @@ public class foablak extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userinterfaceLayout.createSequentialGroup()
                 .addGroup(userinterfaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(szamok, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(muveletjelpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                    .addComponent(muveletjelpanel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -862,92 +792,29 @@ public class foablak extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void osszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osszeadasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_osszeadasActionPerformed
-
-    private void outputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputslotActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_outputslotActionPerformed
-
-    private void inputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputslotActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputslotActionPerformed
-
-    private void kettesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kettesActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"2");
-    }//GEN-LAST:event_kettesActionPerformed
-
-    private void egyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyesActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"1");
-    }//GEN-LAST:event_egyesActionPerformed
-
-    private void bosszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadasActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"+");
-    }//GEN-LAST:event_bosszeadasActionPerformed
-
-    private void muveletijelekStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_muveletijelekStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_muveletijelekStateChanged
-
     private void osszeadasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_osszeadasStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_osszeadasStateChanged
-
-    private void bkivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkivonasActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"-");
-    }//GEN-LAST:event_bkivonasActionPerformed
-
-    private void kivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kivonasActionPerformed
 
     private void osszeadasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_osszeadasMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_osszeadasMouseClicked
 
-    private void bosszeadas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas1ActionPerformed
+    private void osszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osszeadasActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"*");
-    }//GEN-LAST:event_bosszeadas1ActionPerformed
+    }//GEN-LAST:event_osszeadasActionPerformed
 
-    private void bosszeadas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas2ActionPerformed
+    private void kivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kivonasActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"/");
-    }//GEN-LAST:event_bosszeadas2ActionPerformed
+    }//GEN-LAST:event_kivonasActionPerformed
 
-    private void bosszeadas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas3ActionPerformed
+    private void hatvanyozasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatvanyozasActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"pow(");
-    }//GEN-LAST:event_bosszeadas3ActionPerformed
+    }//GEN-LAST:event_hatvanyozasActionPerformed
 
-    private void bosszeadas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas4ActionPerformed
+    private void gyokvonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gyokvonasActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"sqrt(");
-    }//GEN-LAST:event_bosszeadas4ActionPerformed
-
-    private void egyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyenlosegjelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_egyenlosegjelActionPerformed
-
-    private void begyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_begyenlosegjelActionPerformed
-        // TODO add your handling code here:
-        //muveletek();
-        //kifertelmezes();
-    }//GEN-LAST:event_begyenlosegjelActionPerformed
-
-    private void btorlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btorlesActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText().substring(0,inputslot.getText().length()-1));
-    }//GEN-LAST:event_btorlesActionPerformed
-
-    private void torlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torlesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_torlesActionPerformed
+    }//GEN-LAST:event_gyokvonasActionPerformed
 
     private void nyitozarojelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nyitozarojelStateChanged
         // TODO add your handling code here:
@@ -973,15 +840,35 @@ public class foablak extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bezarozarojelActionPerformed
 
-    private void bnyitozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnyitozarojelActionPerformed
+    private void torlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torlesActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"(");
-    }//GEN-LAST:event_bnyitozarojelActionPerformed
+    }//GEN-LAST:event_torlesActionPerformed
 
-    private void bbezarozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbezarozarojelActionPerformed
+    private void egyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyenlosegjelActionPerformed
         // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+")");
-    }//GEN-LAST:event_bbezarozarojelActionPerformed
+    }//GEN-LAST:event_egyenlosegjelActionPerformed
+
+    private void muveletijelekStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_muveletijelekStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_muveletijelekStateChanged
+
+    private void outputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputslotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputslotActionPerformed
+
+    private void inputslotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputslotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputslotActionPerformed
+
+    private void egyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_egyesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"1");
+    }//GEN-LAST:event_egyesActionPerformed
+
+    private void kettesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kettesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"2");
+    }//GEN-LAST:event_kettesActionPerformed
 
     private void harmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_harmasActionPerformed
         // TODO add your handling code here:
@@ -993,15 +880,15 @@ public class foablak extends javax.swing.JFrame {
         inputslot.setText(inputslot.getText()+"4");
     }//GEN-LAST:event_negyesActionPerformed
 
-    private void hatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatosActionPerformed
-        // TODO add your handling code here:
-        inputslot.setText(inputslot.getText()+"6");
-    }//GEN-LAST:event_hatosActionPerformed
-
     private void otosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otosActionPerformed
         // TODO add your handling code here:
         inputslot.setText(inputslot.getText()+"5");
     }//GEN-LAST:event_otosActionPerformed
+
+    private void hatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatosActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"6");
+    }//GEN-LAST:event_hatosActionPerformed
 
     private void hetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hetesActionPerformed
         // TODO add your handling code here:
@@ -1023,13 +910,56 @@ public class foablak extends javax.swing.JFrame {
         inputslot.setText(inputslot.getText()+"0");
     }//GEN-LAST:event_nullasActionPerformed
 
-    private void gyokvonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gyokvonasActionPerformed
+    private void bosszeadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_gyokvonasActionPerformed
+        inputslot.setText(inputslot.getText()+"+");
+    }//GEN-LAST:event_bosszeadasActionPerformed
 
-    private void hatvanyozasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hatvanyozasActionPerformed
+    private void bkivonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkivonasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hatvanyozasActionPerformed
+        inputslot.setText(inputslot.getText()+"-");
+    }//GEN-LAST:event_bkivonasActionPerformed
+
+    private void bosszeadas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas1ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"*");
+    }//GEN-LAST:event_bosszeadas1ActionPerformed
+
+    private void bosszeadas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas2ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"/");
+    }//GEN-LAST:event_bosszeadas2ActionPerformed
+
+    private void bosszeadas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas3ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"pow(");
+    }//GEN-LAST:event_bosszeadas3ActionPerformed
+
+    private void bosszeadas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosszeadas4ActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"sqrt(");
+    }//GEN-LAST:event_bosszeadas4ActionPerformed
+
+    private void bnyitozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnyitozarojelActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+"(");
+    }//GEN-LAST:event_bnyitozarojelActionPerformed
+
+    private void bbezarozarojelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbezarozarojelActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText()+")");
+    }//GEN-LAST:event_bbezarozarojelActionPerformed
+
+    private void btorlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btorlesActionPerformed
+        // TODO add your handling code here:
+        inputslot.setText(inputslot.getText().substring(0,inputslot.getText().length()-1));
+    }//GEN-LAST:event_btorlesActionPerformed
+
+    private void begyenlosegjelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_begyenlosegjelActionPerformed
+        // TODO add your handling code here:
+        //muveletek();
+        //kifertelmezes();
+    }//GEN-LAST:event_begyenlosegjelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1063,7 +993,7 @@ public class foablak extends javax.swing.JFrame {
             public void run() {
                 new foablak().setVisible(true);
             }
-        });        
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
