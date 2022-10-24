@@ -834,455 +834,45 @@ public class foablak extends javax.swing.JFrame {
 
     //------------------------------------------------------------------------//
     //inputslot's input
-    private ArrayList<Character>input=new ArrayList<>();
+    private ArrayList<String>input=new ArrayList<>();
     
     //hibakimenet
     String cerr="Valami hiba történt";
-    
-    // Some symbolic constants for clarity
-    int zarojelvesztes = 0;
-    String number = "8";
-    String print = "=";
-    String name = "a";
-    String let = "L";
-    String gyokok = "s";
-    String hatvanyok = "p";
-    String result = "=";
-    String cpi = "π";
-    String ce = "e";
-    String declkey = "let";
-    String gyok="sqrt";
-    String hatvany="pow";
-    String quit="x";
     
     //value of symbols
     private double pi=3.1415926535;
     private double e=2.7182818284;
     
-    // Variable ///////////////////////
-    private class Variable 
-    {
-        public String name;
-        public double value;
-        
-        public Variable(String var, double val)
-        {
-            name=var;
-            value=val;
-        }
-    };
     
-    private ArrayList<Variable>var_table=new ArrayList<>();
-    
-    private boolean is_declared(String var)
-    {
-        for (Variable v : var_table) 
-        {
-            if (v.name.equals(var)) return true;
-        }
-	return false;
-    }
-    
-    double define_name (String var, double val) throws Exception
-    {
-	if (is_declared(var))
-        {
-            cerr=var + " declared twice";
-            throw new Exception();
-        }
-        var_table.add(new Variable(var, val));
-        return val;
-    }
-    
-    double get_value(String s) throws Exception
-    {
-	for (Variable v : var_table) 
-		if (v.name.equals(s)) return v.value;
-        if(true)
-        {
-            cerr="get: undefined variable" + s;
-            throw new Exception();
-        }
-	return -1;
-    }
-    
-    void set_value(String s, double d) throws Exception
-    {
-	for (Variable v : var_table)
-		if(v.name.equals(s))
-                {
-			v.value = d;
-			return;
-		}
-	cerr="set: undefined variable" + s;
-        throw new Exception();
-    }
-    // Variable end ///////////////////////
     
     // Token ///////////////////////
     private class Token 
     {
-	public String kind;
-	public double value;
-	public String name;
+	public String tipus;
+	public double ertek;
+	public String nev;
 	public Token()
         {
-            kind=null;
+            tipus=null;
         }
         public Token(String ch)
         {
-            kind=ch;
-            value=0;
+            tipus=ch;
+            ertek=0;
         }
         public Token(String ch, double val)
         {
-            kind=ch;
-            value=val;
+            tipus=ch;
+            ertek=val;
         }
         public Token(String ch, String n)                                                       
         {
-            kind=ch;
-            name=n;
+            tipus=ch;
+            nev=n;
         }
     }
     // Token end ///////////////////////
-    
-    // Token_stream ///////////////////////
-    private class Token_stream 
-    {
-        private boolean full;
-	private Token buffer=new Token();
-        
-	public Token_stream()
-        {
-            full=false;
-            buffer=null;
-        }
-        
-	public void putback(Token t) throws Exception
-        {
-            if (full)
-            {
-                cerr="putback() into full buffer";
-                throw new Exception();
-            }
-            buffer = t;
-            full = true;
-        }
-        
-	public Token get() throws Exception
-        {
-            if (full)
-            {
-                full = false;
-                return buffer;
-            }
 
-            String ch;
-            ch = input.get(0) + "";
-
-            switch (ch)
-            {
-                    case "=":
-                    case "(":
-                    case ")":
-                    case "+":
-                    case "-":
-                    case "*":
-                    case "/":
-                    case "%":
-                    case ",":
-                        input.remove(0);
-                        return new Token(ch.charAt(0)+"");
-                    case ".":
-                    case "0": case "1": case "2": case "3": case "4":
-                    case "5": case "6": case "7": case "8": case "9":
-            {
-                    ch="";
-                    for(Character i:input)
-                    {
-                        if(input.get(i).equals("0") || input.get(i).equals("1") ||
-                        input.get(i).equals("2") || input.get(i).equals("3") ||
-                        input.get(i).equals("4") || input.get(i).equals("5") ||
-                        input.get(i).equals("6") || input.get(i).equals("7") ||
-                        input.get(i).equals("8") || input.get(i).equals("9"))
-                        {   
-                            ch=ch+input.get(i);
-                        }
-                        else
-                        {
-                            for(i=0; i<ch.length(); i++)
-                            {
-                                input.remove(0);
-                            }
-                            double val=Integer.parseInt(ch);
-                            return new Token(number, val);
-                        }
-                    }
-            }
-            default:
-            {
-                    if (Character.isLetter(ch.charAt(0)))
-                    {
-                            String s="";
-                            for(int i=0; i<input.size(); i=0)
-                            {
-                                if (Character.isLetter(input.get(i)))
-                                {
-                                    s+=ch;
-                                }
-                                else
-                                {
-                                    for(i=0; i<ch.length(); i++)
-                                    {
-                                        input.remove(0);
-                                    }
-                                    break;
-                                }
-                            }
-                            if (s.equals(gyok)) return new Token(gyokok);
-                            if (s.equals(hatvany)) return new Token(hatvanyok);
-                            else if (is_declared(s))
-                                    return new Token(number, get_value(s));
-                            return new Token(name,s);
-                    }
-                    cerr="Bad token";
-                    throw new Exception();
-            }
-            //return 0;
-            }    
-        }
-        
-	public void ignore(String c)
-        {
-            if (full && (c.equals(buffer.kind)))
-            {
-		full = false;
-		return;
-            }
-
-	full = false;
-
-	String ch = "";
-        for(int i=0; i<input.size(); i=0)
-        {
-            ch=input.get(i) + "";
-            if (ch.equals(c))
-            {
-                for(int a=0;a<=i;a++)
-                {
-                    input.remove(0);
-                }
-                return;
-            }
-        }
-        }
-    }
-    // Token_stream end ///////////////////////
-    private Token_stream ts=new Token_stream();
-    
-    private void clean_up_mess()
-    {
-	ts.ignore(print);
-    }
-    
-    private void main()
-    {
-        try
-        {
-            calculate();
-        }
-        catch(Exception ex)
-        {
-            System.out.println(cerr);
-            outputslot.setText(cerr);
-        }
-    }
-    
-    private void calculate() throws Exception
-    {
-        for (int i=0;i<input.size();i++)
-        {
-            input.remove(0);
-            i--;
-	try {
-		Token t = ts.get();
-		while (t.kind.equals(print)) t = ts.get();
-		if (t.kind.equals(quit)) return;
-		ts.putback(t);
-		double eredmeny=statement();
-                outputslot.setText(eredmeny + "");
-	}
-	catch(Exception ex) {
-		System.out.println(cerr);
-                outputslot.setText(cerr);
-		clean_up_mess();
-	}
-        }
-    }
-    //------------------------------------------------------------------------//
-    //Functions mapping grammar rules //////////////////////////
-
-double primary() throws Exception
-{
-	Token t = ts.get();
-	switch (t.kind)
-	{
-            case "s": //gyokok:
-            {
-                double d = expression();
-		return sqrt(d);
-            }
-	case "(":
-	{
-		double d = expression();
-		t = ts.get();
-		if (!")".equals(t.kind))
-                {
-                    cerr="')' expected";
-                    throw new Exception();
-                }
-		return d;
-	}
-	case "8": //number:
-		return t.value;
-	case "-":
-			return - primary();
-	case "+":
-		return primary();
-        case "p": //hatvanyok:
-        {
-            double a=0;
-            double b=0;
-            t=ts.get();
-            if (!"(".equals(t.kind))
-                {
-                    cerr="'(' expected";
-                    throw new Exception();
-                }
-            a=expression();
-            t=ts.get();
-            if (!",".equals(t.kind))
-                {
-                    cerr="',' expected";
-                    throw new Exception();
-                }
-            b=expression();
-            t = ts.get();
-            if (!")".equals(t.kind))
-                {
-                    cerr="')' expected";
-                    throw new Exception();
-                }
-
-                return(pow(a,b));
-        }
-	default:
-                cerr="primary expected";
-                throw new Exception();
-	}
-}
-
-double term() throws Exception
-{
-	double left = primary();
-	Token t = ts.get();
-	while(true)
-	{
-		switch (t.kind)
-		{
-			case "*":
-				left *= primary();
-				t = ts.get();
-				break;
-			case "/":
-			{
-				double d = primary();
-				if (d == 0)
-                                {
-                                    cerr="divide by zero";
-                                    throw new Exception();
-                                }
-				left /= d;
-				t = ts.get();
-				break;
-			}
-			default:
-				ts.putback(t);
-				return left;
-		}
-	}
-}
-
-
-double expression() throws Exception
-{
-	double left = term();
-	Token t = ts.get();
-	while (true)
-	{
-		switch(t.kind)
-		{
-			case "+":
-				left += term();
-				t = ts.get();
-				break;
-			case "-":
-				left -= term();
-				t = ts.get();
-				break;
-            case ",":
-                {
-                double d=primary();
-                double d2=left;
-               // cout<<"EZAZ "<<d2 <<" "<<d<<endl;
-                left=pow(d2,d);
-                t=ts.get();
-                break;
-                }
-			default:
-				ts.putback(t);
-				return left;
-		}
-	}
-}
-
-double declaration() throws Exception
-{
-	Token t = ts.get();
-	if (!t.kind.equals(name))
-        {
-            cerr="name expected in declaration";
-            throw new Exception();
-        }
-	String var_name = t.name;
-
-	Token t2 = ts.get();
-	if (!"=".equals(t2.kind))
-        {
-            cerr="= missing in declaration of " + var_name;
-            throw new Exception();
-        }
-	double d = expression();
-	define_name(var_name, d);
-	return d;
-}
-
-double statement() throws Exception
-{
-	Token t = ts.get();
-	switch(t.kind)
-	{
-		/*case let:
-			return declaration();*/
-		default:
-			ts.putback(t);
-			return expression();
-	}
-}
-//Functions mapping grammar rules end //////////////////////////
-
-// Program end!
     
     private void osszeadasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_osszeadasStateChanged
         // TODO add your handling code here:
@@ -1456,9 +1046,9 @@ double statement() throws Exception
         String text=inputslot.getText();
         for (int i=0; i<text.length(); i++)
         {
-            input.add((char)text.charAt(i));
+            input.add(text.charAt(i)+"");
         }
-        main();
+        //main();
         while(!input.isEmpty())
         {
             input.remove(0);
